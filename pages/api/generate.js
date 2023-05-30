@@ -15,11 +15,11 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const vehicle = req.body.vehicle || '';
+  if (vehicle.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a valid vehicle",
       }
     });
     return;
@@ -28,8 +28,8 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
-      temperature: 0.6,
+      prompt: generatePrompt(vehicle),
+      temperature: 1.2,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -48,15 +48,17 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(vehicle) {
+  const capitalizedVehicle =
+    vehicle[0].toUpperCase() + vehicle.slice(1).toLowerCase();
+  return `Suggest three names for a giant robot that protects a powerful empire.
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
+Vehicle: Ship
+Names: Forward Unto Dawn, Stellar Haven, Prime Imperator
+Vehicle: Tank
+Names: Eisenschutz, Bastion, Sentinel, Chromium
+Vehicle: Aircraft
+Names: Falcon, Luftkrieg, Aerial
+Vehicle: Giant Robot
 Names:`;
 }
