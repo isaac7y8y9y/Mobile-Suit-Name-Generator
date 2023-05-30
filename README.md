@@ -1,8 +1,6 @@
 # OpenAI API Quickstart - Node.js example app
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
-
-![Gundam]([http://url/to/img.png](https://imgur.com/a/Lx1sLt0))
+This is an example Mobile Weapon name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
 
 ## Setup
@@ -35,7 +33,9 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
    ```
 6. Add your [API key](https://platform.openai.com/account/api-keys) to the newly created `.env` file
 
-7. Run the app
+7. Change branch to main
+
+8. Run the app
 
    ```bash
    $ npm run dev
